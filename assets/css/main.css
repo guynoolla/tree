@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+/*-----------------------------------------------
+    Common
+------------------------------------------------*/
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+footer p {
+    margin: 0;
+    padding: .5rem 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+header {
+    padding: 2rem 0;
+    background-color: #f0efef;
+}
+
+footer {
+    margin-top: 2rem;
+    background-color: #f0efef;
+}
+
+.container {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+
+ul.tree-items-list li ul {
+    padding-left: 1.5rem;
+}
+
+ul.tree-items-list li {
+    font-size: 1.1rem;
+    padding: .3em 0;
+}
+
+.list-btn {
+    position: relative;
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    padding: 0;
+    margin-left: .5rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.list-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.list-btn.expand::after {
+    content: '\002B';
+}
+
+.list-btn.collapse::after {
+    content: '\2212';
+}
+
+.list-btn.pencil::after {
+    content: '\270E';
+    font-size: .8rem;
+    color: #000;
+    top: 8px;
+}
+
+a.default {
+    cursor: default;
+}
+
+.hide {
+    display: none;
+}
+
+.form-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: .3em;
+    padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    .form-wrapper {
+        background-color: #f0efef;
+        padding: 3rem 0;
+    }
+}
+
+/*-----------------------------------------------
+    Form
+------------------------------------------------*/
+.form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.form .form__row {
+    padding: .3rem 0;
+}
+
+.form .form__col input,
+.form .form__row input,
+.form .form__row textarea,
+.form .form__row select {
+    width: 100%;
+    padding: .3rem .5rem;
+    font-size: 1rem;
+}
+
+.form .form__row label {
+    display: block;
+    font-size: 1.1rem;
+    margin: .2rem 0;
+}
+
+.form .form__row select option.level-1 {
+    font-weight: bold;
+}
+
+.form .form__col {
+    display: inline-block;
+    padding: 0;
+}
+
+.form .form__col input {
+    width: auto;
+}
+
+.form .form__col {
+    padding-bottom: .1rem;
+}
+
+.form .form__col label {
+    display: inline-block;
+    min-width: 70px;
+}
+
+.form__btn,
+a.btn {
+    font-size: 1rem;
+    display: inline-block;
+    padding: .6rem 1rem;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+}
+
+.form__btn {
+    background-color: hsl(225, 73%, 57%);
+}
+
+.form.form_auth {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+
+.form.form_auth .form__col {
+    text-align: right;
+}
+
+.form.form_auth .form__col label {
+    padding-right: .5rem;
+    font-size: 1.1rem;
+}
+
+.form.form_auth .form__col input {
+    padding: .2rem .3rem;
+}
+
+.form.form_auth .form__btn {
+    max-width: 5rem;
+    align-self: flex-end;
+    margin-left: 1rem;
+    padding: .5rem .8rem;
+}
+
+button[name=delete] {
+    background-color: rgb(230, 20, 20);
+}
+button[name=delete]:hover {
+    background-color: rgb(204, 27, 27);
+}
+
+/*-----------------------------------------------
+    Other styles
+------------------------------------------------*/
+.nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav strong {
+    color:rgb(64, 94, 150);
+    font-size: 1.2rem;
+}
+
+.nav a {
+    display: block;
+    text-transform: lowercase;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.nav a.active {
+    border-bottom: 2px solid hsl(228, 56%, 62%);
+}
+
+.nav a + a {
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+.user {
+    text-align: right;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: hsl(228, 56%, 62%);
+}
+
+.message {
+    display: block;
+    text-align: center;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: hsl(0, 0%, 13%);
+    padding: 1rem;
+}
+
+.message.message_right {
+    text-align: right;
+}
+
+.message.success {
+    background-color: rgb(64, 150, 64);
+    color: #fff;
+}
+
+.message.danger {
+    background-color: rgb(230, 20, 20);
+    color: #fff;
+}
+
+.message.warning {
+    background-color: rgb(245, 163, 12);
+    color: #fff;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+/*-----------------------------------------------
+    Modal
+------------------------------------------------*/
+
+.modal {
+    --modal-width: 300px;
+    --modal-height: 420px;
+    transition: all 600ms linear;
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    .modal {
+        --modal-width: 500px;
+        --modal-height: 650px;
+    }
+}
+
+.modal .modal__backdrop {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .5);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 200ms ease;
+}
+
+.modal .modal__body {
+    width: var(--modal-width);
+    height: var(--modal-height);
+    position: fixed;
+    top: calc((100vh - var(--modal-height)) / 2);
+    right: calc((100vw - var(--modal-width)) / 2);
+    left: calc((100vw - var(--modal-width)) / 2);
+    background-color: white;
+    padding: 1.5em 1.5em 2em;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-120%);
+    transition: all 400ms 200ms ease;
+    overflow-y: auto;
+}
+
+.modal.is-open .modal__body {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal.is-open .modal__backdrop {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal.is-closing .modal__body {
+    transform: translateY(120%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 400ms ease;
+}
+
+.modal.is-closing .modal__backdrop {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 400ms 200ms ease;
+}
+
+.modal .modal__close {
+    display: none;
+    position: absolute;
+    top: .3em;
+    right: .3em;
+    width: 1em;
+    height: 1em;
+    padding: .3em;
+    cursor: pointer;
+    font-size: 2em;
+    text-indent: 10em;
+    border: none;
+    overflow: hidden;
+}
+
+.modal.is-open .modal__close {
+    display: block;
+}
+
+.modal .modal__close::after {
+    position: absolute;
+    top: 0;
+    left: .2em;
+    content: "\00D7";
+    text-indent: 0;
+    font-size: 1em;
+}
+
+
+/*-----------------------------------------------
+    Button
+------------------------------------------------*/
+.button {
+    padding: 10px 20px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #3e77a3;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 5px #a3b4c0;
+}
+
+.button:hover {
+    background-color: #237fbc;
+}
+
+.button:active {
+    background-color: #237fbc;
+    box-shadow: 0 2px #95bede;
+    transform: translateY(3px);
+}
