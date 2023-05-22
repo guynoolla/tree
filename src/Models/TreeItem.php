@@ -85,7 +85,7 @@ class TreeItem
             if ($input === 'id') {
                 continue;
             }
-            if (trim($this->{$input}) == "") {
+            if ($this->{$input} == "") {
                 $errors[$input] = 'Пожалуйста, заполните поле "' . $this->formFields()[$input] . '".';
             }
         }
