@@ -9,6 +9,6 @@ $treeItems = new TreeItemsRepository($this->db);
 $items = $treeItems->findAll();
 
 $this->view('admin/index', [
-    'title' => 'Главная',
+    'title' => 'Дашборд',
     'items' => $items
 ]);
