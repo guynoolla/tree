@@ -99,15 +99,3 @@ function getFooter(array $data=[])
     </html>
     <?php
 }
-
-function removeTopLevelIndex(array $items)
-{
-    return array_reduce($items, function ($new, $item) {
-        if (is_array($item)) {
-            foreach($item as $k => $v) {
-                $new[] = $v;
-            }
-        }
-        return $new;
-    }, []);
-}

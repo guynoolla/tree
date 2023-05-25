@@ -13,10 +13,12 @@ function flash(string $type="", string $message="")
     if (isset($_SESSION['flash'])) {
         $flash = unserialize($_SESSION['flash']);
         unset($_SESSION['flash']);
+
         return [
             'type' => $flash['type'],
             'message' => $flash['message']
         ];
+
     } else {
         if ($type && $message) {
             $_SESSION['flash'] = serialize([
@@ -31,6 +33,7 @@ function classLoader($className)
 {
     $fileName = get_include_path() . '/' . $className . '.php';
     $fileName = str_replace("\\", '/', $fileName);
+
     if (file_exists($fileName)) {
         require_once($fileName);
     } else {
