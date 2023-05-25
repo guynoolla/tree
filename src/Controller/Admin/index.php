@@ -1,6 +1,6 @@
 <?php
 
-use Guynoolla\App\Repository\TreeItemsRepository;
+use Repository\TreeItemsRepository;
 
 $this->checkAccess();
 

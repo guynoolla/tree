@@ -1,6 +1,6 @@
 <?php
 
-namespace Guynoolla\App\Core;
+namespace Core;
 
 use PDO;
 

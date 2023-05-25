@@ -1,6 +1,6 @@
 <?php
 
-use Guynoolla\App\Repository\UserRepository;
+use Repository\UserRepository;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode($_POST['params']);

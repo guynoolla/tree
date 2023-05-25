@@ -55,7 +55,7 @@ if (is_array($items)) {
                     <?php if ($model->id == 0): ?>
                         <option selected disabled hidden>Выберите родителя</option>
                     <?php endif; ?>
-                        <option value="0" class="level-0 text-italic">Начальный уровень (ур.0)</option>
+                        <option value="0" class="level-0 text-italic">Начальный уровень</option>
                     <?php if (is_array($items)): ?>
                         <?php foreach ($items as $item): ?>
                             <?php if ($item->id == $model->id) continue; ?>
@@ -63,7 +63,10 @@ if (is_array($items)) {
                                 value="<?= $item->id ?>" <?php if ($model->parent_id == $item->id) echo "selected"; ?>
                                 class="level-<?= $item->level ?>"
                             >
-                                <?= $item->name ?> (ур.<?= $item->level ?>)
+                                <?php for ($i=0; $i < $item->level; $i++): ?>
+                                    &emsp;
+                                <?php endfor; ?>
+                                <?= $item->name ?>
                             </option>
                         <?php endforeach; ?>
                     <?php endif; ?>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Guynoolla\App\Repository;
+namespace Repository;
 
 class Repository
 {

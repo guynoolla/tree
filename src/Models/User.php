@@ -1,6 +1,6 @@
 <?php
 
-namespace Guynoolla\App\Models;
+namespace Models;
 
 class User
 {

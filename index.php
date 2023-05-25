@@ -1,15 +1,10 @@
 <?php
 
-function pr($a, $b="") {
-    if ($a && $b) {
-        echo "<pre>$a " . print_r($b, 1) . '</pre>';
-    } else {
-        echo '<pre>' . print_r($a, 1) . '</pre>';
-    }
-}
-
-require ("./vendor/autoload.php");
 require ("./src/functions.php");
+
+set_include_path(__DIR__ . '/src');
+spl_autoload_register('classLoader');
+
 $config = require ("./src/config.php");
 
 if (version_compare(phpversion(), '8.1.0', '<')) {
@@ -38,8 +33,8 @@ if ($path[0] === 'admin') {
 
 $controllerDir = $config["app_root"] . DIRECTORY_SEPARATOR . 'Controller';
 $file = $controllerDir . DIRECTORY_SEPARATOR . $file;
-$db = Guynoolla\App\Core\Database::getInstance($config['db']);
-$controller = new Guynoolla\App\Core\Controller($config, $db, $path);
+$db = Core\Database::getInstance($config['db']);
+$controller = new Core\Controller($config, $db, $path);
 
 if (!file_exists($file)) {
     header("Location: /400?r=" . $_SERVER["REQUEST_URI"]);

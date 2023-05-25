@@ -1,9 +1,9 @@
 <?php
 
-namespace Guynoolla\App\Repository;
+namespace Repository;
 
-use Guynoolla\App\Core\Database;
-use Guynoolla\App\Models\User;
+use Core\Database;
+use Models\User;
 
 class UserRepository extends Repository
 {

@@ -1,7 +1,7 @@
 <?php
 
-use Guynoolla\App\Repository\TreeItemsRepository;
-use Guynoolla\App\Models\TreeItem;
+use Repository\TreeItemsRepository;
+use Models\TreeItem;
 
 $this->checkAccess();
 

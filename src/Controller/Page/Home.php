@@ -1,7 +1,7 @@
 <?php
 
-use Guynoolla\App\Repository\TreeItemsRepository;
-use Guynoolla\App\Repository\UserRepository;
+use Repository\TreeItemsRepository;
+use Repository\UserRepository;
 
 $treeItems = new TreeItemsRepository($this->db);
 

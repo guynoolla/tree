@@ -1,8 +1,8 @@
 <?php
 
-namespace Guynoolla\App\Models;
+namespace Models;
 
-use Guynoolla\App\Core\Database;
+use Core\Database;
 
 class TreeItem
 {

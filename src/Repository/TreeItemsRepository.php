@@ -1,9 +1,9 @@
 <?php
 
-namespace Guynoolla\App\Repository;
+namespace Repository;
 
-use Guynoolla\App\Core\Database;
-use Guynoolla\App\Models\TreeItem;
+use Core\Database;
+use Models\TreeItem;
 
 class TreeItemsRepository extends Repository
 {

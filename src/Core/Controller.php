@@ -1,11 +1,11 @@
 <?php
 
-namespace Guynoolla\App\Core;
+namespace Core;
 
-use Guynoolla\App\Core\Database;
-use Guynoolla\App\Core\UrlManager;
-use Guynoolla\App\Models\User;
-use Guynoolla\App\Repository\UserRepository;
+use Core\Database;
+use Core\UrlManager;
+use Models\User;
+use Repository\UserRepository;
 
 class Controller
 {
