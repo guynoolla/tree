@@ -33,7 +33,9 @@ function createOptionsOfItemsTree($treeItems, $parentId, $level, $model)
 {
     if (isset($treeItems[$parentId])) {
         foreach ($treeItems[$parentId] as $item):
-            ?>
+            if ($item->id == $model->id) {
+                continue;
+            } ?>
             <option
                 value="<?= $item->id ?>" <?php if ($model->parent_id == $item->id) echo "selected"; ?>
                 class="level-<?= $item->level ?>"
@@ -49,3 +51,16 @@ function createOptionsOfItemsTree($treeItems, $parentId, $level, $model)
         endforeach;
     }
 }
+
+function removeTopLevelIndex(array $items)
+{
+    return array_reduce($items, function ($new, $item) {
+        if (is_array($item)) {
+            foreach($item as $k => $v) {
+                $new[] = $v;
+            }
+        }
+        return $new;
+    }, []);
+}
+

@@ -47,6 +47,7 @@ $errors = $data['errors'];
                     <?php if ($model->id == 0): ?>
                         <option selected disabled hidden>Выберите родителя</option>
                     <?php endif; ?>
+                    <option value="0" class="level-0 text-italic">Начальный уровень</option>
                     <?php if (is_array($items)): ?>
                         <?php createOptionsOfItemsTree($items, 0, 0, $model); ?>
                     <?php endif; ?>
