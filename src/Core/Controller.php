@@ -58,6 +58,11 @@ class Controller
         include $this->viewsPath . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'template-functions.php';
     }
 
+    function getAdminTemplateFunctions()
+    {
+        include $this->viewsPath . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'template-functions.php';
+    }
+
     public function redirect($action)
     {
         header("Location: " . $this->urlManager->action($action));

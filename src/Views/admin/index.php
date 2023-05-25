@@ -1,6 +1,7 @@
 <?php
 
 $this->getTemplateFunctions();
+$this->getAdminTemplateFunctions();
 
 getHeader($data);
 

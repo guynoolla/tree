@@ -1,6 +1,7 @@
 <?php
 
 $this->getTemplateFunctions();
+$this->getAdminTemplateFunctions();
 
 getHeader($data);
 
@@ -8,15 +9,6 @@ $model = $data['model'];
 $items = $data['items'];
 $urlManager = $data['urlManager'];
 $errors = $data['errors'];
-
-if (is_array($items)) {
-    $items = removeTopLevelIndex($items);
-    $levels = [];
-    foreach ($items as $item) {
-        $levels[] = $item->level;
-    }
-    $maxLevel = max($levels);
-}
 
 ?>
 <div class="container">
@@ -55,20 +47,8 @@ if (is_array($items)) {
                     <?php if ($model->id == 0): ?>
                         <option selected disabled hidden>Выберите родителя</option>
                     <?php endif; ?>
-                        <option value="0" class="level-0 text-italic">Начальный уровень</option>
                     <?php if (is_array($items)): ?>
-                        <?php foreach ($items as $item): ?>
-                            <?php if ($item->id == $model->id) continue; ?>
-                            <option
-                                value="<?= $item->id ?>" <?php if ($model->parent_id == $item->id) echo "selected"; ?>
-                                class="level-<?= $item->level ?>"
-                            >
-                                <?php for ($i=0; $i < $item->level; $i++): ?>
-                                    &emsp;
-                                <?php endfor; ?>
-                                <?= $item->name ?>
-                            </option>
-                        <?php endforeach; ?>
+                        <?php createOptionsOfItemsTree($items, 0, 0, $model); ?>
                     <?php endif; ?>
                 </select>
             </div>

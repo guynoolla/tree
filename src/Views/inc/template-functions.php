@@ -27,35 +27,6 @@ function treeStructure($treeItems, $parentId, $level)
     }
 }
 
-function treeStructureAdmin($treeItems, $parentId, $level, $urlManager)
-{
-    if (isset($treeItems[$parentId])) {
-        if ($parentId > 0) {
-            $output = '<ul class="tree-items-list hide">';
-        } else {
-            $output = '<ul class="tree-items-list root">';
-        }
-
-        foreach ($treeItems[$parentId] as $item) {
-            $output .= '<li class="list-item">';
-            $output .= "<a href=\"#\" class=\"title open-modal\">{$item->name}</a>";
-            $output .= '<a href="' . $urlManager->action('admin/edit?id=' . $item->id ) . '" class="list-btn pencil"></a>';
-            if (isset($treeItems[$item->id])) {
-                $output .= '<span class="list-btn expand"></span>';
-            }
-            $output .= "<div class=\"description d-none\">{$item->description}</div>";
-            $level++;
-            $output .= treeStructureAdmin($treeItems, $item->id, $level, $urlManager);
-            $level--;
-            $output .= '</li>';
-        }
-
-        $output .= "</ul>";
-
-        return $output;
-    }
-}
-
 function getHeader(array $data=[])
 {
     $urlManager = $data['urlManager'];
