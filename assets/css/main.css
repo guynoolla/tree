@@ -164,10 +164,6 @@ a.default {
     margin: .2rem 0;
 }
 
-.form .form__row select option.level-1 {
-    font-weight: bold;
-}
-
 .form .form__col {
     display: inline-block;
     padding: 0;
