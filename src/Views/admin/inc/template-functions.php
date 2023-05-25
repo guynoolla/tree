@@ -33,9 +33,17 @@ function createOptionsOfItemsTree($treeItems, $parentId, $level, $model)
 {
     if (isset($treeItems[$parentId])) {
         foreach ($treeItems[$parentId] as $item):
-            if ($item->id == $model->id) {
+            if ($item->id == $model->id): ?>
+                <option <?= "disabled"; ?> class="level-<?= $item->level ?>">
+                    <?php
+                    for ($i = 0; $i < $item->level; $i++) {
+                        echo ($i > 0 ? '&ndash;&nbsp;' : "");
+                    } ?>
+                    <?= $item->name ?>
+                </option>
+                <?php
                 continue;
-            } ?>
+            endif; ?>
             <option
                 value="<?= $item->id ?>" <?php if ($model->parent_id == $item->id) echo "selected"; ?>
                 class="level-<?= $item->level ?>"
